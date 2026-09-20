@@ -10,4 +10,17 @@ reset.addEventListener('click', () => {
     overlay.style.display = 'none';
 });
 
-console.log(phrases);
+function getRandomPhraseAsArray(arr) {
+    let number = Math.floor(Math.random() * arr.length);
+
+    return arr[number];
+}
+
+function addPhraseToDisplay(){
+
+}
+
+let word = getRandomPhraseAsArray(phrases);
+
+
+console.log(word);
