@@ -16,11 +16,23 @@ function getRandomPhraseAsArray(arr) {
     return arr[number];
 }
 
-function addPhraseToDisplay(){
+function addPhraseToDisplay(word){
+    let charArray = [...word];
+
+    for(let char of charArray){
+        let li = document.createElement('li');
+        li.textContent = char;
+        phrase.appendChild(li);
+        if(char === ' '){
+            li.className = 'space';
+        } else{
+            li.className = 'letter';
+        }
+    }
 
 }
 
 let word = getRandomPhraseAsArray(phrases);
 
 
-console.log(word);
+console.log(addPhraseToDisplay(word));
