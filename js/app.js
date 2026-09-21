@@ -29,10 +29,22 @@ function addPhraseToDisplay(word){
             li.className = 'letter';
         }
     }
+}
 
+function checkLetter(button){
+    let characters = document.getElementsByTagName('li');
+    let match = null;
+
+    for(char in characters){
+        if(char.textContent === button.textContent){
+            char.className = 'show';
+            match.textContent = button.textContent;
+        }
+    }
+
+    return match;
 }
 
 let word = getRandomPhraseAsArray(phrases);
 
 
-console.log(addPhraseToDisplay(word));
