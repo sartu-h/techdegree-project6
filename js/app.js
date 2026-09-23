@@ -39,7 +39,7 @@ function checkLetter(button){
         console.log(char);
         if(char.textContent.toLowerCase() === button.textContent.toLowerCase()){
             char.className = 'show';
-            matcha = button.textContent;
+            match = button.textContent;
         }
     }
 
@@ -51,12 +51,17 @@ qwerty.addEventListener('click', (e) => {
     let button = e.target;
     if(button.tagName === 'BUTTON' && button.className !== 'chosen'){
         button.className = 'chosen';
-        let check = checkLetter(button);
-        if(check === null){
+        let letterFound = checkLetter(button);
+        let hearts = document.getElementsByClassName("tries");
+        if(letterFound === null){
+            let img = hearts[missed].children[0];
             missed++;
+            img.src = 'images/lostHeart.png' ;
         }
+        
     }
 });
+
 
 let aWord = getRandomPhraseAsArray(phrases);
 addPhraseToDisplay(aWord);
